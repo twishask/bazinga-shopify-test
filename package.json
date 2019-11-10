@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/twishask/bazinga-shopify-test/issues"
   },
-  "homepage": "https://github.com/twishask/bazinga-shopify-test#readme"
+  "homepage": "https://github.com/twishask/bazinga-shopify-test#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
