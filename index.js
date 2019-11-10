@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.get('/trial', function (req, res) {
   console.log("Express working");
-    res.send("Express working")
+    res.send("Express working on heroku")
 })
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
