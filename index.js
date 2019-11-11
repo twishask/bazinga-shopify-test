@@ -1,17 +1,17 @@
 // ... other imports
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
-var mongoose = require('mongoose');
-var cors = require('cors');
+//var mongoose = require('mongoose');
+//var cors = require('cors');
 const path = require("path")
 const port = process.env.PORT || 4000;
 
 
 // ... other app.use middleware
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+//app.use(cors());
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.get('/trial', function (req, res) {
