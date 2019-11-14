@@ -9,14 +9,14 @@ const port = process.env.PORT || 4000;
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/trialdb');
 
-var itemSchema = new mongoose.Schema({
+var orderSchema = new mongoose.Schema({
   email: {type: String, required: true},
   id: {type: Number, required: true},
   number: {type: Number},
   created_at: {type: String}
 }, {strict:false});
 
-var Item = mongoose.model('Item', itemSchema);
+var Item = mongoose.model('Order', orderSchema);
 
 // ... other app.use middleware
 //app.use(cors());
@@ -26,10 +26,10 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.get('/orders', function (req, res) {
   console.log("Express working");
-  Item.find({}, function (err, itemlist) {
+  Order.find({}, function (err, orders) {
     if(err) console.log(err);
     else {
-      res.send(itemlist);
+      res.send(orders);
     }
   })
   //res.status(200);
@@ -39,11 +39,11 @@ app.post('/orders/create', function (req, res) {
   console.log(req);
   console.log(res);
   console.log(req.body);
-  var newitem = req.body
-  Item.create(newitem, function (err, newitem) {
+  var neworder = req.body
+  Order.create(neworder, function (err, neworder) {
     if (err) console.log(err)
     else {
-      res.send(newitem)
+      res.send(neworder)
     }
   })
 //  res.status(200);
