@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const getPasswords = () => {
-    console.log("getPasswords function");
-    // Get the passwords and store them in state
-    fetch('/trial')
-      .then(res => res.json())
-      .then(passwords => {console.log(passwords);});
+  const [orders, setOrders] =useState([])
+
+  useEffect(() => {
+    console.log('mounted or updated');
+    getOrders()
+  }, []);
+
+  const getOrders = () => {
+    console.log("getOrders function");
+    fetch('/orders')
+      .then(res => {
+        res.json()
+      .then(jsonResponse => {
+          setOrders(jsonResponse)
+      });
+    })
   }
 
   return (
     <div className="App">
-        Hello World
-        <br>
-        </br>
-        React working
-      <button
-              className="more"
-              onClick={getPasswords}>
-              Get More
-            </button>
+    <headers className="App-header">
+      <button className="more" onClick={getOrders}>Get More</button>
+        {orders.map(order => {
+          return <div>
+            {order["id"]} {order["email"]}
+          </div>
+        })}
+    </headers>
     </div>
   );
 }
