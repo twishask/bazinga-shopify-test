@@ -16,7 +16,7 @@ var orderSchema = new mongoose.Schema({
   created_at: {type: String}
 }, {strict:false});
 
-var Item = mongoose.model('Order', orderSchema);
+var Order = mongoose.model('Order', orderSchema);
 
 // ... other app.use middleware
 //app.use(cors());
