@@ -8,17 +8,10 @@
     "start": "node index.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/twishask/bazinga-shopify-test.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/twishask/bazinga-shopify-test/issues"
-  },
-  "homepage": "https://github.com/twishask/bazinga-shopify-test#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.7.10"
   }
 }
