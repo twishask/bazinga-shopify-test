@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 const path = require("path")
 const port = process.env.PORT || 4000;
 
-mongoose.connect(process.env.MONGOLAB_BROWN_URI || 'mongodb://localhost/trialdb');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/trialdb');
 
 var orderSchema = new mongoose.Schema({
   email: {type: String, required: true},
