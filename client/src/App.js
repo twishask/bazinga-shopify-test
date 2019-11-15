@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { withRouter } from 'react-router';
 
-function App() {
+function App(props) {
   const [orders, setOrders] =useState([])
 
   useEffect(() => {
@@ -21,18 +22,38 @@ function App() {
     })
   }
 
+  const updateDetails = (order) => {
+    console.log(order);
+  props.history.push({
+    pathname: '/orders/update/',
+//    search: '?query=abc',
+    state: {details: order}
+  })
+  }
+
   return (
     <div className="App">
     <headers className="App-header">
       <button className="more" onClick={getOrders}>Get More</button>
+      <table>
+      <tr>
+      <th><u>Order ID</u></th>
+      <td>Customer phone/email</td>
+      </tr>
         {orders.map(order => {
-          return <div>
-            {order["id"]} {order["email"]}
-          </div>
+          return <tr className="tr">
+            <td>{order["id"]}</td>
+            <td>{order["email"]}
+            <br></br>{order["phone"]}</td>
+            <td>
+            <button onClick={() => updateDetails(order)}>Update Email/Phone</button>
+            </td>
+          </tr>
         })}
+      </table>
     </headers>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);

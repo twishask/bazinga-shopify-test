@@ -8,7 +8,7 @@ const port = process.env.PORT || 4000;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/trialdb');
 
 var orderSchema = new mongoose.Schema({
-  email: {type: String, required: true},
+  email: {type: String, required: false},
   id: {type: Number, required: true},
   number: {type: Number},
   created_at: {type: String}
@@ -35,6 +35,18 @@ app.post('/orders/create', function (req, res) {
     if (err) console.log(err)
     else {
       res.send(neworder)
+    }
+  })
+})
+
+app.put('/orders/update/:order', function (req, res) {
+  var olditem = {_id: req.params.order}
+  var newitem = req.body
+//  newitem.itemImage = req.file.filename
+  Order.update(olditem, newitem, function (err, newitem) {
+    if (err) console.log(err)
+    else {
+      res.send(newitem)
     }
   })
 })
