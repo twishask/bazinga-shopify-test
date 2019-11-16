@@ -37,6 +37,7 @@ function App(props) {
   return (
     <div className="App">
     <headers className="App-header">
+    <br />
       <table>
       <tr>
       <th><u>Order ID</u></th>
@@ -44,9 +45,9 @@ function App(props) {
       <td></td>
       </tr>
         {orders.map(order => {
-          return <tr className="tr" onClick={()=>{displayDetails(order)}}>
-            <td>{order["id"]}</td>
-            <td>{order["email"]}
+          return <tr>
+            <td onClick={()=>{displayDetails(order)}}>{order["id"]}</td>
+            <td onClick={()=>{displayDetails(order)}}>{order["email"]}
             <br></br>{order["phone"]}</td>
             <td>
             <button onClick={() => updateDetails(order)}>Update Email/Phone</button>
