@@ -10,7 +10,7 @@ function UpdateDetails(props) {
   console.log(email+" "+phone);
   const updateDetails = () => {
     console.log("updating...");
-    const url = '/'+order._id
+    const url = '/orders/update/'+order._id
     fetch(url, {
     method: 'PUT',
     headers: {
@@ -26,6 +26,7 @@ function UpdateDetails(props) {
       response.json()
       .then(jsonResponse => {
         console.log(jsonResponse);
+        alert("Email/Phone updated");
       })
     })
   }
