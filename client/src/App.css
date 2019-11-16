@@ -33,8 +33,11 @@ tr {
   padding: 3px;
   height: 8vh;
   min-width: 80vw;
+  cursor: pointer;
 }
-
+tr:hover {
+  background-color: #858992b0;
+}
 td {
   width: 27vmin;
   padding: 5px;
@@ -43,4 +46,10 @@ td {
 button {
   padding: 4px;
   background-color: grey;
+}
+
+.details {
+  max-width: 90vw;
+  overflow-wrap: break-word;
+
 }

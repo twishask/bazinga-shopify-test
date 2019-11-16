@@ -31,6 +31,15 @@ function App(props) {
   })
   }
 
+  const displayDetails = (order) => {
+    console.log(order);
+  props.history.push({
+    pathname: '/orders/details/'+order.id,
+//    search: '?query=abc',
+    state: {details: order}
+  })
+  }
+
   return (
     <div className="App">
     <headers className="App-header">
@@ -41,7 +50,7 @@ function App(props) {
       <td>Customer phone/email</td>
       </tr>
         {orders.map(order => {
-          return <tr className="tr">
+          return <tr className="tr" onClick={()=>{displayDetails(order)}}>
             <td>{order["id"]}</td>
             <td>{order["email"]}
             <br></br>{order["phone"]}</td>
