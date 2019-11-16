@@ -51,5 +51,6 @@ button {
 .details {
   max-width: 90vw;
   overflow-wrap: break-word;
-
+  font-size: calc(5px + 2vmin);
+  align-items: baseline;
 }
