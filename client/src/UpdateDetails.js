@@ -10,7 +10,7 @@ function UpdateDetails(props) {
   console.log(email+" "+phone);
   const updateDetails = () => {
     console.log("updating...");
-    const url = 'http://localhost:3000/orders/update/'+order._id
+    const url = '/'+order._id
     fetch(url, {
     method: 'PUT',
     headers: {

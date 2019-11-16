@@ -42,7 +42,6 @@ app.post('/orders/create', function (req, res) {
 app.put('/orders/update/:order', function (req, res) {
   var olditem = {_id: req.params.order}
   var newitem = req.body
-//  newitem.itemImage = req.file.filename
   Order.update(olditem, newitem, function (err, newitem) {
     if (err) console.log(err)
     else {
